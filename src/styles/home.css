@@ -1,0 +1,46 @@
+.home-page{
+  background-color: rgba(255, 255, 255, 0.7);
+  padding:30px;
+  max-width: 600px;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap:20px;
+  border-radius: 10px;
+  text-align: center;
+
+  /*Center the div */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.start-button{
+  background-color: var(--accent-color);
+  padding:8px;
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC) 14 0,pointer;
+  font-weight: bold;
+  font-size: medium;
+  transition: all 0.15s;
+}
+
+.start-button:hover{
+  transform: scale(1.03);
+  box-shadow: 3px 3px 6px rgb(175, 175, 175);
+  
+}
+
+.start-button:active{
+  transform: translateX(2px) translateY(2px);
+  box-shadow: none;
+}
+
+h1{
+  color:var(--accent-color);
+}

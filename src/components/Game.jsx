@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Card } from "./Card";
+import "../styles/game.css";
+import trophy from "../images/trophy.png";
+import pokeball from "../images/pokeball.png";
+import click from "../sound/click.wav";
+import error from "../sound/error.wav";
 
 const apiUrl = "https://pokeapi.co/api/v2/pokemon";
 const imageUrl =
@@ -10,7 +15,7 @@ const clickedCards = new Set();
 export const Game = () => {
   const [pokemonCards, setPokemonCards] = useState([]);
   const [score, setScore] = useState(0);
-  const [hasClickedMoreThanOnce,setHasClickedMoreThanOnce] = useState(false);
+  const [hasClickedMoreThanOnce, setHasClickedMoreThanOnce] = useState(false);
   const [highScore, setHighScore] = useState(0);
 
   useEffect(() => {
@@ -47,6 +52,7 @@ export const Game = () => {
       clickedCards.clear();
       setScore(0);
       setHasClickedMoreThanOnce(true);
+      new Audio(error).play();
       return;
     }
 
@@ -55,7 +61,7 @@ export const Game = () => {
     const newHighScore = newScore > highScore ? newScore : highScore;
 
     const noOfCards = pokemonCards.length;
-    const rotateBy = Math.floor(Math.random() * noOfCards);
+    const rotateBy = Math.floor(Math.random() * noOfCards) + 1;
 
     const rotatedCards = [];
 
@@ -67,20 +73,36 @@ export const Game = () => {
     setPokemonCards(rotatedCards);
     setScore(newScore);
     setHighScore(newHighScore);
-    setHasClickedMoreThanOnce(false);
+    hasClickedMoreThanOnce && setHasClickedMoreThanOnce(false);
+    new Audio(click).play();
   };
 
   return (
     <div className="game-page">
       <div className="header">
-        <h1>Pokemon Memory Game</h1>
-        <p>
-          Get points by clicking on an pokemon but don't click on any more than
-          once!
-        </p>
-        {hasClickedMoreThanOnce && <p>You clicked a pokemon more than once</p>}
-        <div>Score: {score}</div>
-        <div>High Score: {highScore}</div>
+        <div className="header-text">
+          <div className="game-name-logo">
+            <img className="game-logo" src={pokeball} />
+            <h1> Pokemon Memory Game</h1>
+          </div>
+
+          {hasClickedMoreThanOnce && (
+            <p className="error">
+              You clicked on a pokemon more than once
+              <br />
+              Click on any pokemon to restart
+            </p>
+          )}
+        </div>
+        <div className="header-score">
+          <p>Score: {score}</p>
+          <p>
+            High Score: <img className="trophy-logo" src={trophy} /> {highScore}
+          </p>
+        </div>
+        <p
+          style={{ textAlign: "center" }}
+        >{`${score}/${pokemonCards.length}`}</p>
       </div>
       <div className="cards">
         {pokemonCards.map((pokemon) => {

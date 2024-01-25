@@ -1,0 +1,74 @@
+.game-page{
+  padding:20px;
+}
+
+.cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,auto));
+  gap:20px;
+  padding:20px;
+}
+
+.error{
+  color: red;
+}
+
+.card{
+  background-color: rgba(0,0,0,.2);
+  border: none;
+  border-radius: 5px;
+  height:250px;
+  width:180px;
+  cursor: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAzElEQVRYR+2X0Q6AIAhF5f8/2jYXZkwEjNSVvVUjDpcrGgT7FUkI2D9xRfQETwNIiWO85wfINfQUEyxBG2ArsLwC0jioGt5zFcwF4OYDPi/mBYKm4t0U8ATgRm3ThFoAqkhNgWkA0jJLvaOVSs7j3qMnSgXWBMiWPXe94QqMBMBc1VZIvaTu5u5pQewq0EqNZvIEMCmxAawK0DNkay9QmfFNAJUXfgGgUkLaE7j/h8fnASkxHTz0DGIBMCnBeeM7AArpUd3mz2x3C7wADglA8BcWMZhZAAAAAElFTkSuQmCC) 14 0,pointer;
+  transition: all 0.10s;
+}
+
+.card:hover{
+  transform: scale(1.03);
+  background-color: rgba(0,0,0,.25);
+  
+}
+
+.card  img{
+  height:170px;
+}
+
+.header-text{
+  text-align: center;
+  margin-bottom:20px;
+}
+
+.header-score{
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+  gap:40px;
+  margin-bottom: 20px;
+}
+
+.pokemon-name{
+  color: #ffffff;
+  font-size: medium;
+}
+
+.game-logo{
+  height:50px;
+  border-radius: 5px;
+  align-self: center;
+}
+
+.trophy-logo{
+  height:17px;
+}
+
+.game-name-logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:10px;
+  margin-bottom: 17px;
+}
+
+.game-name-logo > h1{
+  color:var(--accent-color);
+}
